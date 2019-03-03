@@ -1,30 +1,22 @@
-.navbar-fixed.hide-on-large-only
-    nav.orange.darken-3
+.navbar-fixed
+    nav.white
         .nav-wrapper
-            a(data-target="slide-out" href="#").sidenav-trigger
+            a.teal-text(data-target="slide-out" href="#").sidenav-trigger
                 i.material-icons menu
-            a.brand-logo(href="/") Dashboard
+            a.teal-text.brand-logo(href="/") OFAJ
 
-ul#slide-out.sidenav.sidenav-fixed
+            ul.right.hide-on-med-and-down
+                li
+                    a.teal-text(href="/") Home
+
+                li
+                    a.teal-text(href="/about") About
+
+
+ul#slide-out.sidenav
     li
-        .user-view
-            .background
-                img(src="/images/office.jpg")
-            a(href="#user")
-                img.circle(src="/images/yuna.jpg")
-            a(href="#name")
-                span.white-text.name Tushar Pandey
-            a(href="#email")
-                span.white-text.email tusharpandey@gmail.com
+        a(href="/") Home
+            i.material-icons.left home
     li
-      a(href="#!") Home
-        i.material-icons.left home
-    li
-      a(href="#!") Machines
-        i.material-icons.left list
-    li
-      a(href="#!") Settings
-        i.material-icons.left settings
-    li
-      a(href="#!") About
-        i.material-icons.left info
+        a(href="/about") About
+            i.material-icons.left info

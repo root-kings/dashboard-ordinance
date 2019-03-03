@@ -1,12 +1,25 @@
-body {
-    display: flex;
-    flex-direction: column;
+#waitoverlay {
+	position: fixed;
+	/* Sit on top of the page content */
+	display: none;
+	/* Hidden by default */
+	width: 100%;
+	/* Full width (cover the whole page) */
+	height: 100%;
+	/* Full height (cover the whole page) */
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(255, 255, 255, 0.5);
+	/* White background with opacity */
+	z-index: 1000;
+	/* Specify a stack order in case you're using a different order for other elements */
+	cursor: pointer;
+	/* Add a pointer on hover */
 }
 
-main {
-    flex: 1 0 auto;
-}
-
+/* 
 header,
 main,
 footer {
@@ -19,12 +32,39 @@ footer {
     footer {
         padding-left: 0;
     }
-}
+} */
 
 .brand-logo {
-    margin-left: 15px;
+	margin-left: 15px;
 }
 
 .chart {
-    min-height: 35vh;
+	min-height: 35vh;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+}
+
+.flex-height {
+	flex: 1 0 auto;
+	
+}
+
+.btns > .btn {
+	margin-right: 16px;
+}
+
+.btn:last-child {
+	margin-right: initial;
+}
+
+.btn.bordered {
+	border: 2px solid #AAAAAA;
+	box-sizing: content-box;
+}
+
+.btn.bordered.colored-border {
+	border-color: currentColor;
 }

@@ -1,0 +1,20 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Fertility Advisor
+        include styles.pug
+        block styles
+
+    body
+        header
+            include navbar.pug
+        
+        main.light-green.lighten-5
+            block content
+        
+        include footer.pug
+
+        include scripts.pug
+        block scripts
