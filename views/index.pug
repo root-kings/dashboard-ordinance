@@ -3,81 +3,24 @@ extends components/layout.pug
 block styles
 
 block content
-    .green.darken-2
+    .parallax-container.flex-height.valign-wrapper
+        .parallax
+            img.dark(src="/images/office.jpg", alt="", srcset="")
         .container
+            h1.white-text.center OFAJ
+            h2.white-text.center.light Industry 4.0 
             .row
-                .col.s12
-                    h3.header.light.white-text Metrics
-        .divider.green.darken-5
-
-    //- .container
-        .row
-            .col.s12
-                h3.header.light.green-text.text-darken-2 Metrics
-    .divider
-
-    .container
-        .row
-            .col.s6.l3
-                a(href="#")
-                    .card-panel.rounded.padded-compact.hoverable.red.accent-3
-                        h4.black-text.center 3
-                        p.black-text.center.truncate Problems
-            .col.s6.l3
-                a(href="#")
-                    .card-panel.rounded.padded-compact.hoverable.yellow.lighten-1
-                        h4.black-text.center 4
-                        p.black-text.center.truncate Overheating
-            .col.s6.l3
-                a(href="#")
-                    .card-panel.rounded.padded-compact.hoverable
-                        h4.black-text.center 345
-                        p.black-text.center.truncate Fuzes Produced
-            .col.s6.l3
-                a(href="#")
-                    .card-panel.rounded.padded-compact.hoverable
-                        h4.black-text.center 34
-                        p.black-text.center.truncate Running
-
-        .row
-            .col.s12
-                .card.hoverable.rounded
-                    .card-content
-                        span.card-title Vibrations
-                    .card-image
-                        canvas#chart1
-                    .card-action.right-align
-                        //- a.btn.green.lighten-1.curvy(href="#") View
-                        a.btn.green.lighten-1.curvy(href="#")
-                            //-i.material-icons.right arrow_forward
-                            i.material-icons.center arrow_forward
-
-            .col.s12.l6
-                .card.hoverable.rounded
-                    .card-content
-                        span.card-title Temperature
-                    .card-image
-                        canvas#chart2
-                    .card-action.right-align
-                        //- a.btn.green.lighten-1.curvy(href="#") View
-                        a.btn.green.lighten-1.curvy(href="#")
-                            //-i.material-icons.right arrow_forward
-                            i.material-icons.center arrow_forward
-
-            .col.s12.l6
-                .card.hoverable.rounded
-                    .card-content
-                        span.card-title Current
-                    .card-image
-                        canvas#chart3
-                    .card-action.right-align
-                        //- a.btn.green.lighten-1.curvy(href="#") View
-                        a.btn.green.lighten-1.curvy(href="#")
-                            //-i.material-icons.right arrow_forward
-                            i.material-icons.center arrow_forward
-
+                .col.s12.center
+                    .btns
+                        a.btn.btn-large.bordered.btn-flat.white-text.colored-border(href="/machine") FS
+                    
+                        a.btn.btn-large.bordered.btn-flat.white-text.colored-border(href="#") ~#~
+                    
+                        a.btn.btn-large.bordered.btn-flat.white-text.colored-border(href="#") ~#~
+                    
+                        a.btn.btn-large.bordered.btn-flat.white-text.colored-border(href="#") ~#~
+                    
+                        a.btn.btn-large.bordered.btn-flat.white-text.colored-border(href="#") ~#~
 
 block scripts
-    script(src="/js/lib/moment.js")
-    script(src="/js/lib/Chart.bundle.min.js")
-    script(src="/js/init/homepage.js")
+    
