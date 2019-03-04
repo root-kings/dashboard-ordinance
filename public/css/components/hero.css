@@ -1,0 +1,10 @@
+
+main {
+	display: flex;
+	flex-direction: column;
+}
+
+.flex-height {
+	flex: 1 0 auto;
+	
+}
