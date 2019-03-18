@@ -442,105 +442,6 @@ var config2 = {
 	}
 }
 
-var config3 = {
-	type: 'line',
-	data: {
-		labels: [
-			newDate(0),
-			newDate(1),
-			newDate(2),
-			newDate(3),
-			newDate(4),
-			newDate(5),
-			newDate(6),
-			newDate(7),
-			newDate(8),
-			newDate(9),
-			newDate(10),
-			newDate(11),
-			newDate(12),
-			newDate(13),
-			newDate(14),
-			newDate(15),
-			newDate(16),
-			newDate(17),
-			newDate(18),
-			newDate(19)
-		],
-		datasets: [
-			{
-				label: 'A',
-				backgroundColor: chartColor('orange')
-					.alpha(0.1)
-					.rgbString(),
-				pointRadius: 0,
-				lineTension: 0.3,
-				borderWidth: 1,
-				borderColor: chartColor('orange')
-					.alpha(0.75)
-					.rgbString(),
-				fill: true,
-				data: [
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor()
-				]
-			}
-		]
-	},
-	options: {
-		title: {
-			text: 'Current'
-		},
-		responsive: true,
-		scales: {
-			xAxes: [
-				{
-					type: 'time',
-					time: {
-						format: timeFormat,
-						// round: 'day'
-						tooltipFormat: 'll HH:mm'
-					},
-					scaleLabel: {
-						display: true,
-						labelString: 'Date'
-					}
-				}
-			],
-			yAxes: [
-				{
-					scaleLabel: {
-						display: true,
-						labelString: 'value'
-					}
-				}
-			]
-		}
-	}
-}
-
 window.onload = function() {
 	var ctx1 = document.getElementById('chart1').getContext('2d')
 	window.myLine = new Chart(ctx1, config1)
@@ -548,8 +449,6 @@ window.onload = function() {
 	var ctx2 = document.getElementById('chart2').getContext('2d')
 	window.myLine = new Chart(ctx2, config2)
 
-	var ctx3 = document.getElementById('chart3').getContext('2d')
-	window.myLine = new Chart(ctx3, config3)
 }
 
 var randomScalingFactor = function() {
@@ -600,11 +499,8 @@ window.onload = function() {
 		cu.getContext('2d')
 		window.mycu = new Chart(cu, config)
 	}
-	var ct = document.getElementById('chart-temp')
-	if (ct) {
-		ct.getContext('2d')
-		window.myct = new Chart(ct, config3)
-	}
+	
+
 	var cj = document.getElementById('chart-jobs')
 	if (cj) {
 		cj.getContext('2d')
