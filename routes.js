@@ -11,11 +11,11 @@ router.get('/machine', (req, res) => {
 		machine: undefined
 	})
 })
-router.get('/machine/:id', (req, res) => {
-	res.render('machine', {
-		machine: req.params.id
-	})
-})
+// router.get('/machine/:id', (req, res) => {
+// 	res.render('machine', {
+// 		machine: req.params.id
+// 	})
+// })
 
 router.get('/data', (req, res) => {
 	res.sendFile(__dirname+'/data.json')
