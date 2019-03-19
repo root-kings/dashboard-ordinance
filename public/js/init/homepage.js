@@ -63,5 +63,34 @@ function viewMachineToggle(machineId) {
 			.then(function(machineData) {
 				machineDetails.jobs = machineData.length
 			})
+
+		fetch('http://59.99.238.23/arduino/fs_tornos/vk_data.php?oj_no=' + machineId) // Temperature data
+			.then(function(response) {
+				return response.json()
+			})
+			.then(function(machineData) {
+				tempChart.data.labels = []
+				tempChart.data.datasets[0].data = []
+
+				// machineData = [
+				// 	{ seccd: 41, ojno: 5873, datetime: 1552965446000, temp: -127 },
+				// 	{ seccd: 41, ojno: 5873, datetime: 1552965656000, temp: -127 }
+				// ]
+
+				machineData.sort(function(second1, second2) {
+					if (second1.datetime > second2.datetime) return 1 // ascending
+					if (second1.datetime < second2.datetime) return -1
+					return 0
+				})
+
+				let lasttemp = 0
+				machineData.forEach(second => {
+					tempChart.data.labels.push(second.datetime)
+					lasttemp = second.temp == -127 ? lasttemp : second.temp // set current temperature value to last temp if it is -127
+					tempChart.data.datasets[0].data.push(lasttemp)
+				})
+
+				tempChart.update()
+			})
 	}
 }
