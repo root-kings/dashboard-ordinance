@@ -61,7 +61,13 @@ function viewMachineToggle(machineId) {
 				return response.json()
 			})
 			.then(function(machineData) {
-				machineDetails.jobs = machineData.length
+				machineDetails.jobs = machineData
+					/* .sort(function(second1, second2) {
+						if (second1.dttime > second2.dttime) return 1 // ascending
+						if (second1.dttime < second2.dttime) return -1
+						return 0
+					})
+					.map(job => moment(job.dttime).format('hh:mm:ss')) */
 			})
 
 		fetch('http://59.99.238.23/arduino/fs_tornos/vk_data.php?oj_no=' + machineId) // Temperature data
