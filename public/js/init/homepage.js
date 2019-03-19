@@ -37,3 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	tempChart = new Chart(tempChartElem, tempChartConfig)
 	
 })
+
+
+function viewMachineToggle(machineId) {
+	machineDetails.machine = machineDetails.machine == machineId ? undefined : machineId
+	machineList.selected = machineDetails.machine ? machineId : undefined
+}
