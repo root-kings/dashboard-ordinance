@@ -1,0 +1,45 @@
+extends components/layout.pug
+
+block styles
+
+block content
+    .row
+        .col.s3.no-padding       
+            #machineList.collection         
+                a.collection-item(v-for='machine in machines' @click="viewMachineToggle(machine)", v-bind:class="{active:machine==selected}") {{machine}}
+
+
+        .col.s9
+            section#machineDetails
+                .row(v-if="machine==undefined")
+                    .col.s6
+                        .card
+                            .card-content
+                                span.card-title Machines Status
+                                p Machines ON: 35
+                                p Jobs completed: 453
+                    //- .col.s6
+                        canvas#chart-util-gen
+
+
+                .row(v-else)
+                    .col.s6
+                        .card
+                            .card-content
+                                span.card-title {{machine}}
+                                    i.right.material-icons.medium(v-bind:class="{'green-text':status,'red-text':!status}") fiber_manual_record
+                            .card-action
+                                h5.light Jobs produced: {{jobs}}
+            section#charts
+                .row
+                    .col.s12
+                        canvas#chart-temp
+                    //- .col.s6
+                    //-     canvas#chart-util
+                    //- .col.s6
+                    //-     canvas#chart-jobs
+
+block scripts
+    script(src="/js/init/tempchartconfig.js")
+    script(src="/js/init/homepage.js")
+    
