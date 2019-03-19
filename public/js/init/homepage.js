@@ -33,5 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	})
 	/* }) */
 
+	tempChartElem = document.getElementById('chart-temp').getContext('2d')
+	tempChart = new Chart(tempChartElem, tempChartConfig)
 	
 })
