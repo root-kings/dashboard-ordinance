@@ -35,11 +35,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	tempChartElem = document.getElementById('chart-temp').getContext('2d')
 	tempChart = new Chart(tempChartElem, tempChartConfig)
-	
 })
-
 
 function viewMachineToggle(machineId) {
 	machineDetails.machine = machineDetails.machine == machineId ? undefined : machineId
 	machineList.selected = machineDetails.machine ? machineId : undefined
+
+	if (machineDetails.machine) {
+		fetch('http://59.99.238.23/arduino/fs_tornos/mac_onoff.php?oj_no=' + machineId) // On/Off Status
+			.then(function(response) {
+				return response.json()
+			})
+			.then(function(machineData) {
+				machineData.sort(function(second1, second2) {
+					if (second1.dttime < second2.dttime) return 1 // Descending sort
+					if (second1.dttime > second2.dttime) return -1
+					return 0
+				})
+				// console.log(machineData)
+				machineDetails.status = machineData[0].onoff
+			})
+	}
 }
