@@ -55,5 +55,13 @@ function viewMachineToggle(machineId) {
 				// console.log(machineData)
 				machineDetails.status = machineData[0].onoff
 			})
+
+		fetch('http://59.99.238.23/arduino/fs_tornos/mac_job.php?oj_no=' + machineId) // list of jobs
+			.then(function(response) {
+				return response.json()
+			})
+			.then(function(machineData) {
+				machineDetails.jobs = machineData.length
+			})
 	}
 }
