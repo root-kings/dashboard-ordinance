@@ -82,9 +82,14 @@ function viewMachineToggle(machineId) {
 
 				let lasttemp = 0
 				machineData.forEach(second => {
-					tempChart.data.labels.push(second.datetime)
+// 					tempChart.data.labels.push(second.datetime)
 					lasttemp = second.temp == -127 ? lasttemp : second.temp // set current temperature value to last temp if it is -127
-					tempChart.data.datasets[0].data.push(lasttemp)
+					let currpoint = {
+						t: second.datetime,
+						y: lasttemp
+					}
+					tempChart.data.datasets[0].data.push(currpoint)
+// 					tempChart.data.datasets[0].data.push(lasttemp)
 				})
 
 				tempChart.update()
