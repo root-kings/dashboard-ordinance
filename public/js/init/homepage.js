@@ -61,20 +61,6 @@ function viewMachineToggle(machineId) {
 				machineDetails.status = machineData[0].onoff
 			})
 
-		fetch('http://59.99.238.23/arduino/fs_tornos/mac_job.php?oj_no=' + machineId) // list of jobs
-			.then(function(response) {
-				return response.json()
-			})
-			.then(function(machineData) {
-				machineDetails.jobs = machineData
-				/* .sort(function(second1, second2) {
-						if (second1.dttime > second2.dttime) return 1 // ascending
-						if (second1.dttime < second2.dttime) return -1
-						return 0
-					})
-					.map(job => moment(job.dttime).format('hh:mm:ss')) */
-			})
-
 		fetch('http://59.99.238.23/arduino/fs_tornos/vk_data.php?oj_no=' + machineId) // Temperature data
 			.then(function(response) {
 				return response.json()
@@ -102,6 +88,20 @@ function viewMachineToggle(machineId) {
 				})
 
 				tempChart.update()
+
+				fetch('http://59.99.238.23/arduino/fs_tornos/mac_job.php?oj_no=' + machineId) // list of jobs
+					.then(function(response) {
+						return response.json()
+					})
+					.then(function(machineData) {
+						machineDetails.jobs = machineData
+							.sort(function(second1, second2) {
+								if (second1.dttime > second2.dttime) return 1 // ascending
+								if (second1.dttime < second2.dttime) return -1
+								return 0
+							})
+							.map(job => moment(job.dttime).format('hh:mm:ss'))
+					})
 			})
 	}
 }
