@@ -29,6 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
 			machine: undefined,
 			status: false,
 			jobs: 0
+		},
+		updated: function() {
+			M.Collapsible.init(document.querySelectorAll('.collapsible'), {
+				accordion: false
+			})
 		}
 	})
 	/* }) */
@@ -62,7 +67,7 @@ function viewMachineToggle(machineId) {
 			})
 			.then(function(machineData) {
 				machineDetails.jobs = machineData
-					/* .sort(function(second1, second2) {
+				/* .sort(function(second1, second2) {
 						if (second1.dttime > second2.dttime) return 1 // ascending
 						if (second1.dttime < second2.dttime) return -1
 						return 0

@@ -12,7 +12,7 @@ block content
         .col.s9
             section#machineDetails
                 .row(v-if="machine==undefined")
-                    .col.s6
+                    .col.s12.m6
                         .card
                             .card-content
                                 span.card-title Machines Status
@@ -23,16 +23,28 @@ block content
 
 
                 .row(v-else)
-                    .col.s6
+                    .col.s12.m6
                         .card
                             .card-content
                                 span.card-title {{machine}}
                                     i.right.material-icons.medium(v-bind:class="{'green-text':status,'red-text':!status}") fiber_manual_record
-                            .card-action
-                                h5.light Jobs produced: {{jobs}}
+                            .divider
+                            .card-content
+                                span.card-title Jobs produced: {{jobs.length}}
+                    .col.s12.m6
+                        ul.collapsible
+                            li
+                                .collapsible-header Yesterday: 45 jobs
+                                .collapsible-body Temperature
+                            li
+                                .collapsible-header Last week
+                                .collapsible-body Job bar graph
+                            li
+                                .collapsible-header last month
+                                .collapsible-body Jobs bar graph
             section#charts
                 .row
-                    .col.s12
+                    .col.s12.l8
                         canvas#chart-temp
                     //- .col.s6
                     //-     canvas#chart-util
