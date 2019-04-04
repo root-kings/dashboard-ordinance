@@ -30,7 +30,7 @@ var tempChartConfig = {
 	data: {
 		datasets: [
 			{
-				label: 'Machine',
+				label: 'Temperature',
 				backgroundColor: color('red')
 					.alpha(0.5)
 					.rgbString(),
@@ -40,7 +40,20 @@ var tempChartConfig = {
 				pointRadius: 0,
 				fill: false,
 				lineTension: 0,
-				borderWidth: 2
+				borderWidth: 1
+			},
+			{
+				label: 'Jobs',
+				backgroundColor: color('blue')
+					.alpha(0.5)
+					.rgbString(),
+				borderColor: 'blue',
+				data: data,
+				type: 'line',
+				pointRadius: 1.5	,
+				fill: false,
+				lineTension: 0,
+				borderWidth: 0
 			}
 		]
 	},
