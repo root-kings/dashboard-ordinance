@@ -97,7 +97,7 @@ function viewMachineToggle(machineId) {
 									if (second1.dttime < second2.dttime) return -1
 									return 0
 								})
-								.map(job => moment(job.dttime).format('hh:mm:ss'))
+								.map(job => moment(job.dttime))
 
 							cb(null, formattedJobs)
 						})
